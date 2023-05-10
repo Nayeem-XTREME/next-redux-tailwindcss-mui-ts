@@ -9,7 +9,7 @@ const Error = ({ error, reset }: { error: Error; reset: () => void }) => {
   }, [error]);
 
   return (
-    <div className="flex w-full h-screen justify-center items-center gap-4">
+    <div className="flex flex-col w-full h-screen justify-center items-center gap-4">
       <h2>Something went wrong!</h2>
       <button
         onClick={
