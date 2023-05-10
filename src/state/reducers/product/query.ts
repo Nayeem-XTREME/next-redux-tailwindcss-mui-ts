@@ -49,3 +49,5 @@ export const {
     getRunningQueriesThunk: getProductRunningQueriesThunk,
   },
 } = productApi;
+
+export const { getProduct } = productApi.endpoints;
