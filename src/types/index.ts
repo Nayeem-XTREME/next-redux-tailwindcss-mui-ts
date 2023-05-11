@@ -44,14 +44,15 @@ export type UserLoginResponse = Token & {
 };
 
 export type GetProductResponse = {
-  _id: string;
-  productName: string;
-  productUrl: string;
-  productVideoUrl: string;
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  discountPercentage: number;
+  rating: number;
+  stock: number;
+  brand: string;
+  category: string;
   thumbnail: string;
-  status: boolean;
-  theme: {
-    _id: string;
-    name: string;
-  };
+  images: string[];
 };
