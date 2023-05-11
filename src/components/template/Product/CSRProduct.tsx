@@ -2,6 +2,7 @@
 
 import { CircularProgress } from '@mui/material';
 
+import { Centered } from '@/components/core';
 import { useGetProductQuery } from '@/state/reducers';
 
 import Details from './Details';
@@ -12,7 +13,7 @@ const CSRProduct = ({ id }: { id: string }) => {
   });
 
   return (
-    <div className="flex justify-center items-center w-full">
+    <Centered>
       {isLoading ? (
         <CircularProgress size={32} />
       ) : isSuccess ? (
@@ -20,7 +21,7 @@ const CSRProduct = ({ id }: { id: string }) => {
       ) : (
         <div>Something went wrong</div>
       )}
-    </div>
+    </Centered>
   );
 };
 

@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import tw from 'tailwind-styled-components';
 
+import { HomeTemplate } from '@/components/template';
+
 /* 
   Sometimes, it's messy to write tailwind classes inside the JSX, when class names are too long.
   Hence 'tailwind-styled-components', which helps to better organize the JSX, with the very familiar syntax of popular 'styled-components' library,
@@ -14,7 +16,10 @@ const Main = tw.main`
   flex-col 
   items-center 
   justify-between 
-  p-24
+  px-6
+  py-20
+  sm:px-16
+  md:px-24
 `;
 
 const Container = tw.div`
@@ -59,7 +64,6 @@ const WrappedLogo = tw.div`
   bottom-0 
   left-0 
   flex 
-  h-48 
   w-full 
   items-end 
   justify-center 
@@ -183,6 +187,8 @@ const Home = () => {
           priority
         />
       </NextGradiant>
+
+      <HomeTemplate />
 
       <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
         <StyledSubLink

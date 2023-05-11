@@ -1,25 +1,28 @@
 'use client'; // Error components must be Client components
 
 import { useEffect } from 'react';
+import { Button } from '@mui/material';
 
-const Error = ({ error, reset }: { error: Error; reset: () => void }) => {
+import { Centered } from '@/components/core';
+
+type ErrorProps = {
+  error: Error;
+  // Attempt to recover by trying to re-render the segment
+  reset: () => void;
+};
+
+const Error = ({ error, reset }: ErrorProps) => {
   useEffect(() => {
-    // Log the error to an error reporting service
     console.error(error);
   }, [error]);
 
   return (
-    <div className="flex flex-col w-full h-screen justify-center items-center gap-4">
+    <Centered className="h-screen flex-col gap-4">
       <h2>Something went wrong!</h2>
-      <button
-        onClick={
-          // Attempt to recover by trying to re-render the segment
-          () => reset()
-        }
-      >
+      <Button variant="contained" color="error" onClick={() => reset()}>
         Try again
-      </button>
-    </div>
+      </Button>
+    </Centered>
   );
 };
 

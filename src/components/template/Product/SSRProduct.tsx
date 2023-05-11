@@ -1,3 +1,4 @@
+import { Centered } from '@/components/core';
 import { publicGet } from '@/utils';
 import { GetProductResponse } from '@/types';
 
@@ -9,9 +10,9 @@ const SSRProduct = async ({ id }: { id: string }) => {
   });
 
   return (
-    <div className="flex justify-center items-center w-full">
+    <Centered>
       <Details data={data} />
-    </div>
+    </Centered>
   );
 };
 

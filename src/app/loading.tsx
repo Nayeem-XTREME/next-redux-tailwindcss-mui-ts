@@ -1,8 +1,10 @@
+import { Centered } from '@/components/core';
+
 const Loading = () => {
   return (
-    <div className="flex flex-col justify-center items-center w-full h-screen">
+    <Centered className="h-screen">
       <h3>Loading...</h3>
-    </div>
+    </Centered>
   );
 };
 

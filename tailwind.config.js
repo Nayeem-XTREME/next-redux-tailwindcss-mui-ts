@@ -52,6 +52,19 @@ module.exports = {
           800: '#424242',
           900: '#212121',
         },
+        emp: {
+          white: {
+            high: '#FFFFFF',
+            medium: '#F5F5F5',
+            low: '#EEEEEE',
+          },
+          black: {
+            high: '#03100F',
+            medium: '#0D2B29',
+            low: '#566B69',
+          },
+          disabled: '#9E9E9E',
+        },
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
