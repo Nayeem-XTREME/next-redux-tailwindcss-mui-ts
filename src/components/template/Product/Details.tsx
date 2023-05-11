@@ -24,7 +24,7 @@ const Details = ({ data }: { data?: GetProductResponse }) => {
         <h6>Category: {data?.category}</h6>
         <h6>Rating: {data?.rating}</h6>
       </div>
-      <p>{data?.description}</p>
+      <p className="max-w-xl text-center">{data?.description}</p>
     </div>
   );
 };
