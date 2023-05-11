@@ -41,7 +41,7 @@
   }
 
   body {
-    @apply text-sm;
+    @apply overflow-x-hidden text-sm;
     color: rgb(var(--foreground-rgb));
     background: linear-gradient(
         to bottom,

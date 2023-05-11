@@ -1,10 +1,12 @@
 import Image from 'next/image';
 
+import { FlexCentered } from '@/components/core';
+
 import type { GetProductResponse } from '@/types';
 
 const Details = ({ data }: { data?: GetProductResponse }) => {
   return (
-    <div className="flex flex-col justify-center items-center gap-4">
+    <FlexCentered className="flex-col gap-4">
       {data?.thumbnail && data?.title && (
         <Image
           src={data.thumbnail}
@@ -15,17 +17,17 @@ const Details = ({ data }: { data?: GetProductResponse }) => {
           priority
         />
       )}
-      <div className="flex flex-col justify-center items-center">
+      <FlexCentered className="flex-col">
         <h3 className="font-bold">{data?.title}</h3>
         <h4>Price: {data?.price} $</h4>
-      </div>
-      <div className="flex flex-col justify-center items-center">
+      </FlexCentered>
+      <FlexCentered className="flex-col">
         <h6>Brand: {data?.brand}</h6>
         <h6>Category: {data?.category}</h6>
         <h6>Rating: {data?.rating}</h6>
-      </div>
+      </FlexCentered>
       <p className="max-w-xl text-center">{data?.description}</p>
-    </div>
+    </FlexCentered>
   );
 };
 

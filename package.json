@@ -65,6 +65,7 @@
     "lint-staged": "^13.2.2",
     "postcss": "^8.4.23",
     "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.2.8",
     "redux-logger": "^3.0.6",
     "sass": "^1.62.1",
     "tailwind-styled-components": "^2.2.0",
