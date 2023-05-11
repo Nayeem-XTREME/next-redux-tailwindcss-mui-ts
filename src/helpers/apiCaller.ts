@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 import { apiUrl } from '@/configs';
 
 // Due to our current setup, supplying the request body through the Generics
@@ -20,74 +18,72 @@ const config: ConfigArgs = {
   },
 };
 
-const Axios = axios.create({
-  baseURL: apiUrl,
-  timeout: 10000,
-  ...config,
-});
+const fetchWithHeaders = async <T>(
+  endpoint: string,
+  method: string,
+  body?: ObjectWithAnyProperty,
+  token?: string,
+  options?: RequestInit
+): Promise<T> => {
+  const headers = {
+    ...config.headers,
+    ...(token && { Authorization: `Bearer ${token}` }),
+  };
 
-export const publicGet = async <T>(endpoint: string): Promise<T> => {
-  const response = await Axios({
-    method: 'get',
-    url: endpoint,
-  });
-  return response.data;
+  const mergedOptions: RequestInit = {
+    method,
+    headers,
+    body: body ? JSON.stringify(body) : undefined,
+    ...options,
+  };
+
+  const response = await fetch(`${apiUrl}/${endpoint}`, mergedOptions);
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || 'An error occurred.');
+  }
+
+  return data;
+};
+
+export const publicGet = async <T>(
+  endpoint: string,
+  options?: RequestInit
+): Promise<T> => {
+  return fetchWithHeaders<T>(endpoint, 'GET', undefined, undefined, options);
 };
 
 export const publicPost = async <T>(
   endpoint: string,
-  body: ObjectWithAnyProperty
+  body: ObjectWithAnyProperty,
+  options?: RequestInit
 ): Promise<T> => {
-  const response = await Axios({
-    method: 'post',
-    url: endpoint,
-    data: body,
-  });
-  return response.data;
+  return fetchWithHeaders<T>(endpoint, 'POST', body, undefined, options);
 };
 
 export const privateGet = async <T>(
   endpoint: string,
-  token: string
+  token: string,
+  options?: RequestInit
 ): Promise<T> => {
-  const response = await Axios({
-    method: 'get',
-    url: endpoint,
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  return response.data;
+  return fetchWithHeaders<T>(endpoint, 'GET', undefined, token, options);
 };
 
 export const privatePost = async <T>(
   endpoint: string,
   token: string,
-  body: ObjectWithAnyProperty
+  body: ObjectWithAnyProperty,
+  options?: RequestInit
 ): Promise<T> => {
-  const response = await Axios({
-    method: 'post',
-    url: endpoint,
-    data: body,
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  return response.data;
+  return fetchWithHeaders<T>(endpoint, 'POST', body, token, options);
 };
 
 export const privatePut = async <T>(
   endpoint: string,
   token: string,
-  body: ObjectWithAnyProperty
+  body: ObjectWithAnyProperty,
+  options?: RequestInit
 ): Promise<T> => {
-  const response = await Axios({
-    method: 'put',
-    url: endpoint,
-    data: body,
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  return response.data;
+  return fetchWithHeaders<T>(endpoint, 'PUT', body, token, options);
 };
