@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import tw from 'tailwind-styled-components';
 
@@ -24,11 +24,21 @@ const HomeTemplate = () => {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const [loading, setLoading] = useState<boolean>(false);
+  const [searchType, setSearchType] = useState<'ssr' | 'csr' | ''>('');
+
+  useEffect(() => {
+    if (loading && searchType) {
+      const productId = inputRef.current?.value;
+      router.push(`/products/${productId}/${searchType}`);
+    }
+  }, [loading, searchType, router]);
+
   const handleClick = (type: 'ssr' | 'csr') => {
     const productId = inputRef.current?.value;
-
     if (productId && !isNaN(parseFloat(productId))) {
-      router.push(`/products/${productId}/${type}`);
+      setLoading(true);
+      setSearchType(type);
     }
   };
 
@@ -44,6 +54,8 @@ const HomeTemplate = () => {
           variant="outlined"
           className="w-full min-w-max text-white"
           onClick={() => handleClick('ssr')}
+          disabled={loading}
+          loading={loading && searchType === 'ssr'}
         >
           SSR Search
         </Button>
@@ -51,6 +63,8 @@ const HomeTemplate = () => {
           variant="outlined"
           className="w-full min-w-max text-white"
           onClick={() => handleClick('csr')}
+          disabled={loading}
+          loading={loading && searchType === 'csr'}
         >
           CSR Search
         </Button>

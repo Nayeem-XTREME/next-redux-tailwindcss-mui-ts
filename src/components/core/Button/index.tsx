@@ -7,7 +7,7 @@ const StyledButton = ({ children, ...rest }: LoadingButtonProps) => (
     classes={{
       root: 'min-h-[40px] rounded-lg text-base font-semibold normal-case text-emp-black-medium px-4',
       disabled:
-        '!bg-emp-disabled/40' + (rest.loading ? ' !text-transparent' : ''),
+        '!bg-emp-disabled/20' + (rest.loading ? ' !text-transparent' : ''),
     }}
     {...rest}
   >
