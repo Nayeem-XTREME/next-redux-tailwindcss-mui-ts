@@ -18,12 +18,13 @@ const Main = tw.main`
   justify-between 
   px-6
   py-20
+  gap-8
   sm:px-16
   md:px-24
 `;
 
 const Container = tw.div`
-  z-10 
+  z-20 
   w-full 
   max-w-5xl 
   items-center 
@@ -63,6 +64,7 @@ const WrappedLogo = tw.div`
   fixed 
   bottom-0 
   left-0 
+  h-48
   flex 
   w-full 
   items-end 
