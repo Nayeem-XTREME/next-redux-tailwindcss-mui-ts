@@ -1,5 +1,5 @@
 import { Centered } from '@/components/core';
-import { publicGet } from '@/utils';
+import { publicGet } from '@/helpers';
 import { GetProductResponse } from '@/types';
 
 import Details from './Details';
