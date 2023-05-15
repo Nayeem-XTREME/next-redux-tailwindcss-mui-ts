@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import NextAuth, { type AuthOptions } from 'next-auth';
+import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { isAfter } from 'date-fns';
 import jwtDecode from 'jwt-decode';
 
-import { publicPost } from '@/utils';
+import { publicPost } from '@/helpers';
 import { maxIdleTime } from '@/configs';
 
 import type {
@@ -45,7 +45,7 @@ const userLogin = async (data: { email: string; password: string }) => {
   }
 };
 
-export const authOptions: AuthOptions = {
+const handler = NextAuth({
   session: {
     strategy: 'jwt',
     maxAge: Number(idleTime) * 60,
@@ -90,6 +90,6 @@ export const authOptions: AuthOptions = {
   pages: {
     signIn: '/login',
   },
-};
+});
 
-export default NextAuth(authOptions);
+export { handler as GET, handler as POST };
