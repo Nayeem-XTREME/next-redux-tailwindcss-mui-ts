@@ -9,7 +9,7 @@ import { inter } from '@/utils';
 
 const isBrowser = typeof document !== 'undefined';
 
-const theme = createTheme({
+export const theme = createTheme({
   typography: {
     fontFamily: inter.style.fontFamily,
   },
