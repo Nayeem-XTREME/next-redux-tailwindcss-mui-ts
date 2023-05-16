@@ -15,4 +15,4 @@ const StyledButton = ({ children, ...rest }: LoadingButtonProps) => (
   </LoadingButton>
 );
 
-export default StyledButton as typeof LoadingButton;
+export default StyledButton;
