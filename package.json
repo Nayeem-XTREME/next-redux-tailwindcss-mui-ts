@@ -44,7 +44,8 @@
     "react-hook-form": "^7.43.9",
     "react-icons": "^4.8.0",
     "react-redux": "^8.0.5",
-    "sharp": "^0.32.1"
+    "sharp": "^0.32.1",
+    "tss-react": "^4.8.3"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^13.4.2",
