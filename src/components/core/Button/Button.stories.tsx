@@ -5,6 +5,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 const meta: Meta<typeof Button> = {
   title: 'Button',
   component: Button,
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['text', 'outlined', 'contained'],
+    },
+    color: {
+      control: 'select',
+      options: ['primary', 'secondary', 'success', 'error', 'info', 'warning'],
+    },
+  },
 };
 
 export default meta;

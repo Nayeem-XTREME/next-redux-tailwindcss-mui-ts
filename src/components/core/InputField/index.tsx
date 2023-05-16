@@ -35,13 +35,13 @@ const InputField = forwardRef(
           classes: {
             root: 'rounded-lg overflow-hidden',
             input:
-              'py-3.5 text-emp-black-medium bg-white overflow-hidden text-sm',
+              'py-3.5 text-emp-black-medium bg-white dark:bg-gray-800 overflow-hidden text-sm dark:text-white dark:placeholder:text-gray-400',
           },
         }}
         InputLabelProps={{
           classes: {
-            filled: 'top-0.5 text-neutral-600',
-            focused: 'top-0.5 text-neutral-500',
+            filled: '!top-0.5 text-neutral-600',
+            focused: '!top-0.5 text-neutral-500',
             outlined: 'top-[5px] text-emp-disabled',
             error: '!text-status-error',
           },

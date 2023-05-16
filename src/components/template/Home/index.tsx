@@ -11,13 +11,15 @@ const StyledInput = tw.input`
   w-full 
   rounded-md 
   border-2 
-  border-[##1d4ed8] 
+  border-solid
+  border-gray-300
   bg-transparent 
   px-4 
   py-2 
   text-black 
   outline-none 
   dark:text-white
+  dark:border-[#1d4ed8] 
 `;
 
 const HomeTemplate = () => {
@@ -52,7 +54,7 @@ const HomeTemplate = () => {
       <FlexCentered className="w-full justify-between gap-3">
         <Button
           variant="outlined"
-          className="w-full min-w-max text-white"
+          className="w-full min-w-max dark:text-white"
           onClick={() => handleClick('ssr')}
           disabled={loading}
           loading={loading && searchType === 'ssr'}
@@ -61,7 +63,7 @@ const HomeTemplate = () => {
         </Button>
         <Button
           variant="outlined"
-          className="w-full min-w-max text-white"
+          className="w-full min-w-max dark:text-white"
           onClick={() => handleClick('csr')}
           disabled={loading}
           loading={loading && searchType === 'csr'}
