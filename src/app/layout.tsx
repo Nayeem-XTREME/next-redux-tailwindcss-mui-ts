@@ -1,3 +1,5 @@
+import { NextAppDirEmotionCacheProvider } from 'tss-react/next/appDir';
+
 import { AuthProvider, MuiProvider, ReduxProvider } from '@/components/global';
 import { inter } from '@/utils';
 
@@ -11,12 +13,16 @@ export const metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" className={inter.className}>
+      <head></head>
       <body id="__next">
-        <AuthProvider>
-          <MuiProvider>
-            <ReduxProvider>{children}</ReduxProvider>
-          </MuiProvider>
-        </AuthProvider>
+        {/* Temporary SSR fix */}
+        <NextAppDirEmotionCacheProvider options={{ key: 'css' }}>
+          <AuthProvider>
+            <MuiProvider>
+              <ReduxProvider>{children}</ReduxProvider>
+            </MuiProvider>
+          </AuthProvider>
+        </NextAppDirEmotionCacheProvider>
       </body>
     </html>
   );
