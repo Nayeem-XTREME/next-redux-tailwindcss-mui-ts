@@ -13,6 +13,7 @@ export const metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" className={inter.className}>
+      <head></head>
       <body id="__next">
         {/* Temporary SSR fix */}
         <NextAppDirEmotionCacheProvider options={{ key: 'css' }}>
