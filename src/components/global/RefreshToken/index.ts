@@ -7,6 +7,13 @@ import jwtDecode from 'jwt-decode';
 import type { RefreshTokenProps } from './types';
 import type { Session, TokenInfo } from '@/types';
 
+/**
+ * Refreshes the token in the session by setting a new interval for refetching.
+ *
+ * @param {Function} setInterval - a function that sets a new interval for refetching
+ * @return {null}
+ */
+
 const RefreshToken = ({ setInterval }: RefreshTokenProps) => {
   const { data } = useSession();
 

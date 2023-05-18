@@ -20,6 +20,18 @@ type SnackbarProps = {
   defaultTransition?: boolean;
 };
 
+/**
+ * Renders a Snackbar component that displays an alert message to the user.
+ *
+ * @param {object} SnackbarProps - An object containing props for the Snackbar component.
+ * @param {string} SnackbarProps.className - Optional class name to apply to the component.
+ * @param {object} SnackbarProps.iconMapping - An object mapping icon types to icon components.
+ * @param {object} SnackbarProps.anchorOrigin - An object containing vertical and horizontal positioning for the component.
+ * @param {number} SnackbarProps.autoHideDuration - The time in milliseconds to auto dismiss the Snackbar.
+ * @param {ReactComponent} SnackbarProps.defaultTransition - The default transition component for the Snackbar.
+ * @return {JSX.Element} The Snackbar component with an alert message to display to the user.
+ */
+
 const SnackbarComponent = ({
   className,
   iconMapping,
