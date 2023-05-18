@@ -2,6 +2,13 @@
 
 import { LoadingButton, type LoadingButtonProps } from '@mui/lab';
 
+/**
+ * Renders a styled button component with text and a loading state.
+ *
+ * @param {LoadingButtonProps} rest - The props object containing the children and any other props for the underlying LoadingButton.
+ * @return {JSX.Element} A styled button component with text and a loading state.
+ */
+
 const StyledButton = ({ children, ...rest }: LoadingButtonProps) => (
   <LoadingButton
     classes={{

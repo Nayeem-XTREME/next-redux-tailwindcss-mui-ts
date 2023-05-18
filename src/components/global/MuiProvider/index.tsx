@@ -46,6 +46,13 @@ const createEmotionCache = () => {
 
 const emotionCache = createEmotionCache();
 
+/**
+ * Renders a Material-UI theme provider with styled components and Emotion cache
+ *
+ * @param {React.ReactNode} children - The children to render in the theme provider
+ * @return {React.ReactNode} - The rendered theme provider with styled components and Emotion cache
+ */
+
 const MuiProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <StyledEngineProvider injectFirst>
