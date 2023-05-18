@@ -46,6 +46,7 @@
             "next-auth",
             "next-auth/providers",
             "next-auth/next",
+            "tss-react",
             "tailwind-styled-components",
             "tailwind.config.js",
             "tailwindcss/resolveConfig",
@@ -63,11 +64,15 @@
             "next-redux-wrapper",
             "^@?\\w"
           ],
+          // pages
           // components
           // hooks
+          // api
           // state
+          // helpers
           // utils
           // configs
+          // types
           [
             "^(@/app)(/.*|$)",
             "^(@/pages)(/.*|$)",
